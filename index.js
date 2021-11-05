@@ -1,23 +1,24 @@
 /* eslint-disable func-style */
+class Task {
 
-const newTask = (title, description) => {
-  const task = {
-    title,
-    description,
-    complete: false,
-    completeTask: function() {
-      this.complete = true;
-    },
-    logTaskState: function() {
-      console.log(`${this.title} has${this.complete ? " " : " not "}been completed`);
-    }
-  };
+  constructor(title,description) {
+    this.title = title;
+    this.description = description;
+    this.complete = false;
+  }
 
-  return task;
-};
+  completeTask() {
+    this.complete = true;
+  }
 
-const task1 = newTask("Clean Cat Litter", "Take all the 💩 out of the litter box");
-const task2 = newTask("Do Laundry", "😨");
+  logTaskState() {
+    console.log(`${this.title} has${this.complete ? " " : " not "}been completed`);
+  }
+
+}
+
+const task1 = new Task("Clean Cat Litter", "Take all the 💩 out of the litter box");
+const task2 = new Task("Do Laundry", "😨");
 const tasks = [task1, task2];
 
 task1.logTaskState(); // Clean Cat Litter has not been completed
